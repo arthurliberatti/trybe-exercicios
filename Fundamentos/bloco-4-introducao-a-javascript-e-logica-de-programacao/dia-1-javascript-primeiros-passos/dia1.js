@@ -153,7 +153,29 @@ if (custo >=0 && venda >= 0) {
 let inss;
 let ir;
 
-let salarioBruto = 3000.00;
+let salarioBruto = 4700.00;
+let salarioInss;
+let salarioLiquido;
 
+if (salarioBruto <= 1556.94) {
+    salarioInss = salarioBruto * 0.92;
+}else if (salarioBruto >= 1556.95 && salarioBruto <= 2594.92) {
+    salarioInss = salarioBruto * 0.91;
+}else if (salarioBruto >= 2594.93 && salarioBruto <= 5189.82) {
+    salarioInss = salarioBruto * 0.89;
+}else {
+    salarioInss = salarioBruto - 570.88;
+};
 
-
+if (salarioInss <= 1903.98) {
+    salarioLiquido = salarioInss;
+}else if (salarioInss >= 1903.99 && salarioInss <= 2826.65) {
+    salarioLiquido = (salarioInss - ((salarioInss * 0.075) - 142.80));
+}else if (salarioInss >= 2826.66 && salarioInss <= 3751.05) {
+    salarioLiquido = (salarioInss - ((salarioInss * 0.15) - 345.80));
+}else if (salarioInss >= 3751.06 && salarioInss <= 4664.68) {
+    salarioLiquido = (salarioInss - ((salarioInss * 0.225) - 636.13));
+}else {
+    salarioLiquido = (salarioInss - ((salarioInss * 0.275) - 869.36));
+};
+console.log("O salario Liquido é: " + salarioLiquido);
